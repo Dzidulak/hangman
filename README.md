@@ -16,7 +16,7 @@ Clone the repo by entering the following in the terminal:
 ```
 git clone https://github.com/Dzidulak/hangman.git
 ```
-Then in the folder run:
+Enter the hangman folder and run:
 ```
 milestone_3.py
 ```
