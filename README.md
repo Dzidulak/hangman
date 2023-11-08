@@ -9,7 +9,7 @@ Hangman is a classic game in which a player thinks of a word and the other playe
 This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
 
 ## Progress
-So far the program will print a random word and take a user input. 
+So far the program takes in the user input and checks if the letter is in the random word. 
 
 # Installation/Usage
 Clone the repo by entering the following in the terminal:
