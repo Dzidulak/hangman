@@ -1,6 +1,6 @@
 # Hangman
 
-## Project Status
+### Project Status
 This project is still in development. **08/11/2023**
 
 # Introduction
