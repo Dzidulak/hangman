@@ -11,14 +11,14 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 ## Progress
 So far the program will print a random word and take a user input. 
 
-# Usage
+# Installation/Usage
 Clone the repo by entering the following in the terminal:
 ```
 git clone https://github.com/Dzidulak/hangman.git
 ```
 Then in the folder run:
 ```
-milestone_2.py
+milestone_3.py
 ```
 
 # File Structure
