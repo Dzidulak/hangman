@@ -110,7 +110,7 @@ def play_game(word_list):
         if game.num_letters > 0:
             game.ask_for_input()
         else:
-            print("\nCongratulations!! You won the game!")
+            print(f"\nCongratulations!! The word was: '{game.word}' \nYou won the game!")
             break
 
 
