@@ -74,7 +74,7 @@ class Hangman:
 
         if guess in self.word:
             print(f"Good guess! '{guess}' is in the word.")
-            num_updated_letters = self.__update_word_guessed(guess)
+            num_updated_letters = self.__update_word_guessed(guess) #update the word_guessed and get number letters to d
             self.num_letters -= num_updated_letters
         else:
             self.num_lives -= 1

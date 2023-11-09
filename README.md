@@ -33,3 +33,6 @@ The game can then be played in the terminal.
 
 # Future Improvements
 1. Adding actual hangman charater
+
+# License 
+[MIT License](LICENSE)
