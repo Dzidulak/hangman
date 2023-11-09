@@ -46,15 +46,20 @@ class Hangman:
     def __update_word_guessed(self, guess):
         '''
         This function updates the word_guessed variable with the correctly guessed letter
+        and returns the nu,ber of times that letter occurs in the word.
 
         Args:
             guess(str): letter user guessed
+        
+        Returns:
+            int: number of spaces replaced 
         '''
         for letter in self.word:
                 if guess == letter:
-                    indexs = self.get_duplicate_letters(self.word, letter)#indexs of letter are found
+                    indexs = self.__get_duplicate_letters(self.word, letter)#indexs of letter are found
                     for i in indexs:
                         self.word_guessed[i] = guess #each '_' is replcaed with letter guessed 
+        return len(indexs)
 
     def __check_guess(self, guess):
         '''
@@ -69,8 +74,8 @@ class Hangman:
 
         if guess in self.word:
             print(f"Good guess! '{guess}' is in the word.")
-            __update_word_guessed(guess)
-            self.num_letters -= 1
+            num_updated_letters = self.__update_word_guessed(guess)
+            self.num_letters -= num_updated_letters
         else:
             self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
@@ -82,19 +87,34 @@ class Hangman:
         before processing the guess.
         '''
         while True:
-            #print(self.word_guessed)
-            guess = input("Please enter a letter: ")
+            print(self.word_guessed)
+            guess = input("\nPlease enter a letter: ")
 
             if len(guess) != 1 or guess.isalpha() == False:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
-                self.check_guess(guess)
+                self.__check_guess(guess)
                 self.list_of_guesses.append(guess)
+                break
     
+
+def play_game(word_list):
+    num_lives = 5
+    game = Hangman(word_list, num_lives)
+    while True:
+        if game.num_lives == 0:
+            print("\n You Lost!")
+            break
+        if game.num_letters > 0:
+            game.ask_for_input()
+        else:
+            print("\nCongratulations!! You won the game!")
+            break
 
 
 word_list = ["mango","strawberry","papaya","apple","banana"]
-game = Hangman(word_list)
-game.ask_for_input()
+play_game(word_list)
+
+
