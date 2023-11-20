@@ -1,5 +1,6 @@
 import random 
 
+
 class Hangman:
     '''
     This class is used to setup a hangman game or the user to play
@@ -7,17 +8,21 @@ class Hangman:
     Attributes:
         word_list(list): A list of words that the "Computer" will use to randomly pick for user to play.
         num_lives(int): The number of lives the user has when guessing letters.
+        word(str): Random chosen word by the "computer".
+        num_letters(int): The number of UNIQUE letters in the word that have not been guessed yet.
+        word_guessed(list): A list of the letters of the word, with _ for each letter not yet guessed.
+        list_of_guesses(list): A list of the guesses that have already been tried.
     '''
     def __init__(self, word_list, num_lives = 5):
         '''
         See help(Hangman) for accurate signature
         '''
-        self.word =  random.choice(word_list) #Random chosen word by the "computer".
-        self.num_letters = len(self.word) #The number of UNIQUE letters in the word that have not been guessed yet 
-        self.word_guessed = ['_']*self.num_letters #A list of the letters of the word, with _ for each letter not yet guessed. 
+        self.word =  random.choice(word_list)
+        self.num_letters = len(self.word)
+        self.word_guessed = ['_']*self.num_letters
         self.num_lives = num_lives 
         self.word_list = word_list 
-        self.list_of_guesses = [] #A list of the guesses that have already been tried.
+        self.list_of_guesses = []
 
     def __get_duplicate_letters(self, word, letter):
         '''
@@ -74,7 +79,7 @@ class Hangman:
 
         if guess in self.word:
             print(f"Good guess! '{guess}' is in the word.")
-            num_updated_letters = self.__update_word_guessed(guess) #update the word_guessed and get number letters to d
+            num_updated_letters = self.__update_word_guessed(guess) 
             self.num_letters -= num_updated_letters
         else:
             self.num_lives -= 1
@@ -83,7 +88,7 @@ class Hangman:
 
     def ask_for_input(self):
         '''
-        This function callects the users guessed and makes sure it's in the correct format 
+        This function collects the users guessed and makes sure it's in the correct format
         before processing the guess.
         '''
         while True:
@@ -99,7 +104,12 @@ class Hangman:
                 self.list_of_guesses.append(guess)
                 break
     
+'''
+This function initializes the game and determines when the user wins or loses.
 
+Args:
+    word_list(list): list of words for game to use.
+'''
 def play_game(word_list):
     num_lives = 5
     game = Hangman(word_list, num_lives)
@@ -117,5 +127,3 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = ["mango","strawberry","papaya","apple","banana"]
     play_game(word_list)
-
-
