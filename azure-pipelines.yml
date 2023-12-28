@@ -17,3 +17,11 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'service-connection-ai-demo'
+    azureResourceGroup: 'aks-rg'
+    kubernetesCluster: 'aks-deploy-demo'
+    manifests: 'depolyment-manifest.yaml'
