@@ -20,6 +20,14 @@ python milestone_5.py
 ```
 The game can then be played in the terminal.
 
+### Playing the game
+
+After running the the game the following will show up in the terminal:
+
+![First screenshot](screenshots/Screenshot%202024-01-29%20193554.png)
+
+The word's missing letters are shown to the user and by following the instructions they can easily play the game in the terminal.  
+
 # File Structure
 ```
 .
